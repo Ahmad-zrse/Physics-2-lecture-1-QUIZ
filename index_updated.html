@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Physics II Lecture 1 online quiz: Electrostatics and Coulomb's Law">
+<title>Physics II — Lecture 1 Quiz</title>
+<style>
+:root{font-family:Inter,Arial,sans-serif;color:#172033;background:#f3f6fb;line-height:1.55}
+*{box-sizing:border-box}body{margin:0}header{background:linear-gradient(135deg,#14213d,#1d4ed8);color:#fff;padding:30px 18px}
+.wrap{max-width:950px;margin:auto;padding:0 16px}header .wrap{padding:0}
+h1{font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.15;margin:0 0 10px}
+.sub{color:#dbeafe;margin:0;max-width:720px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chip{background:#ffffff20;border:1px solid #ffffff2b;border-radius:999px;padding:5px 10px;font-size:.85rem}
+main{padding:22px 0 40px}.notice{background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;padding:13px 15px;border-radius:12px;margin-bottom:18px}
+.progressbox{position:sticky;top:0;background:#f3f6fbef;backdrop-filter:blur(8px);padding:10px 0;z-index:2}
+.progressline{height:7px;background:#dbe3f0;border-radius:99px;overflow:hidden}.progressfill{height:100%;width:0;background:#2563eb;transition:width .2s}
+.progressmeta{display:flex;justify-content:space-between;font-size:.88rem;color:#475569;margin-bottom:7px}
+.q{background:#fff;border:1px solid #dce3ef;border-radius:15px;padding:18px;margin:14px 0;box-shadow:0 3px 12px #0f172a08}
+.qhead{display:flex;align-items:flex-start;gap:10px}.num{flex:0 0 32px;height:32px;border-radius:9px;background:#eaf0ff;color:#1d4ed8;font-weight:800;display:grid;place-items:center}
+h2{font-size:1.05rem;line-height:1.5;margin:2px 0 14px;font-weight:700}.topic{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:#64748b;margin:0 0 6px}
+.opts{display:grid;gap:8px}.opt{display:flex;align-items:flex-start;gap:10px;border:1px solid #dbe2ec;border-radius:10px;padding:10px 12px;cursor:pointer;transition:.15s}
+.opt:hover{background:#f8faff;border-color:#9db6f8}.opt input{margin-top:5px;accent-color:#2563eb}.opt.correct{background:#ecfdf5;border-color:#22c55e}.opt.incorrect{background:#fff1f2;border-color:#fb7185}
+.solution{display:none;margin-top:13px;border-top:1px solid #e2e8f0;padding-top:12px;color:#334155}.solution strong{color:#0f172a}.q.reviewed .solution{display:block}
+.q.reviewed{border-color:#cbd5e1}.q.reviewed .num{background:#e2e8f0;color:#334155}
+.actions{display:flex;gap:10px;flex-wrap:wrap;position:sticky;bottom:8px;padding:10px;background:#f3f6fbe8;backdrop-filter:blur(8px);border-radius:14px}
+button{border:0;border-radius:11px;padding:12px 17px;font-size:1rem;font-weight:750;cursor:pointer}
+.primary{background:#1d4ed8;color:#fff}.secondary{background:#e2e8f0;color:#172033}.primary:hover{background:#1e40af}
+#result{display:none;background:#fff;border:1px solid #cbd5e1;border-radius:16px;padding:22px;margin:18px 0}.score{font-size:2rem;font-weight:850;color:#1d4ed8}
+.small{font-size:.9rem;color:#64748b}footer{text-align:center;color:#64748b;padding:25px 0;font-size:.85rem}
+@media(min-width:720px){.opts.two{grid-template-columns:1fr 1fr}}
+@media print{header{background:#fff;color:#111;border-bottom:2px solid #111}.sub,.chips,.actions,.progressbox{display:none}.q{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Physics II — Lecture 1 Quiz</h1>
+<p class="sub">Electrostatics and Coulomb’s Law · Practice quiz based on the supplied lecture PDF. Submit to see your score, correct choices, and worked explanations.</p>
+<div class="chips"><span class="chip">Instant scoring</span><span class="chip">Answer explanations</span><span class="chip">Works on mobile</span><span class="chip">No sign-in required</span></div>
+</div></header>
+<main class="wrap">
+<div class="notice"><strong>Calculation review note:</strong> The lecture’s Example 2 appears to contain an exponent typo in its written calculation. Using \(5×10^{11}×1.6×10^{-19}\) gives \(+8.0×10^{-8}\,C\), not \(+8.0×10^{-9}\,C\). This site marks the mathematically calculated value and flags the discrepancy below. Some later examples have incomplete/garbled equations in the PDF text extraction; those are not silently reconstructed as exact answer keys.</div>
+<div class="progressbox"><div class="progressmeta"><span id="answered">Answered 0 of 24</span><span id="pct">0%</span></div><div class="progressline"><div id="progressfill" class="progressfill"></div></div></div>
+<form id="quiz"></form>
+<div class="actions"><button type="button" class="primary" id="submit">Submit answers</button><button type="button" class="secondary" id="reset">Try again</button><button type="button" class="secondary" id="print">Print / Save PDF</button></div>
+<section id="result" aria-live="polite"></section>
+<footer>Prepared from “Lecture 1_Electrostatics and Coulomb's Law.pdf”. This is a practice site; check flagged source ambiguities with the instructor before using it as a formal exam.</footer>
+</main>
+<script>
+const questions = [
+{topic:"Electric charge",q:"Example (1): How many electrons correspond to a charge of −1 C?",options:["6.25 × 10¹⁷","1.6 × 10¹⁹","6.25 × 10¹⁸","1.6 × 10⁻¹⁹","10¹⁸"],a:2,exp:"N = |Q|/e = 1/(1.6 × 10⁻¹⁹) = 6.25 × 10¹⁸ electrons. The correct choice in the PDF is (C)."},
+{topic:"Electric charge",q:"Example (2): A neutral metal sphere is charged; 5 × 10¹¹ electrons leave the sphere. What is the final charge on the sphere?",options:["+8.0 × 10⁻⁸ C","−8.0 × 10⁻⁸ C","+8.0 × 10⁻⁹ C","−8.0 × 10⁻⁹ C","0"],a:0,exp:"Electrons leave, so the sphere becomes positive. Q = Ne = (5 × 10¹¹)(1.6 × 10⁻¹⁹ C) = +8.0 × 10⁻⁸ C. The PDF states +8.0 × 10⁻⁹ C, but that exponent does not follow from the displayed numbers; this answer uses the calculation."},
+{topic:"Electric charge",q:"Example (3): How many electrons produce a charge magnitude of 1 μC?",options:["6.25 × 10¹⁰","1.6 × 10¹³","6.25 × 10¹²","10⁶","1.6 × 10¹⁹"],a:2,exp:"1 μC = 10⁻⁶ C. N = |Q|/e = 10⁻⁶/(1.6 × 10⁻¹⁹) = 6.25 × 10¹² electrons. If the charge is positive, that corresponds to a deficit of electrons; the PDF’s note says “lost.”"},
+{topic:"Charge quantization",q:"Example (4): Can a charge of −1 × 10⁻¹⁸ C exist as an isolated body's net charge?",options:["Yes, because charge can take any value","Yes, because it corresponds to 6 electrons","No, because it corresponds to 6.25 electrons","No, because negative charges cannot exist","Yes, because it is smaller than one coulomb"],a:2,exp:"N = Q/(−e) = (−1 × 10⁻¹⁸)/(−1.6 × 10⁻¹⁹) = 6.25. Since the number of elementary charges must be an integer, this net charge is not allowed in the stated model."},
+{topic:"Charge quantization",q:"Example (5): Which charged object listed is physically possible?",options:["+4.0 × 10⁻¹⁹ C","−7.2 × 10⁻¹⁹ C","+1.28 × 10⁻¹⁸ C","−9.6 × 10⁻¹⁹ C","+2.5 × 10⁻¹⁹ C"],a:3,exp:"A physically possible net charge is an integer multiple of e = 1.6 × 10⁻¹⁹ C. Option D gives −9.6 × 10⁻¹⁹/(1.6 × 10⁻¹⁹) = −6, an integer. The PDF’s option D formatting is broken across lines, but its solution identifies this value."},
+{topic:"Electric charge",q:"Example (6): A metal object contains 10²⁴ electrons. How many electrons must be removed to give it a charge of +1 nC?",options:["6.25 × 10⁹","6.25 × 10¹⁰","6.25 × 10¹²","1.6 × 10⁻¹⁹","10²⁴"],a:0,exp:"N = Q/e = 10⁻⁹/(1.6 × 10⁻¹⁹) = 6.25 × 10⁹ electrons removed."},
+{topic:"Electric charge",q:"Example (6): What percentage of 10²⁴ electrons is 6.25 × 10⁹ electrons?",options:["6.25 × 10⁻¹³ %","6.25 × 10⁻¹¹ %","6.25 × 10⁻⁹ %","6.25 × 10⁻⁶ %","6.25 × 10⁻¹⁵ %"],a:0,exp:"Percentage = (6.25 × 10⁹ / 10²⁴) × 100 = 6.25 × 10⁻¹³ %."},
+{topic:"Triboelectric effect",q:"Example (7): Materials A and B are rubbed together. A has a greater tendency to attract electrons than B. What is the charge on A after rubbing?",options:["Positive","Negative","Neutral in every case","Cannot be inferred from electron transfer"],a:1,exp:"Electrons transfer toward material A because it has the greater tendency to attract them. A gains electrons and becomes negatively charged."},
+{topic:"Triboelectric effect",q:"Example (7): Which particles are transferred when the two materials are rubbed?",options:["Protons","Neutrons","Electrons","The whole atoms must transfer"],a:2,exp:"In ordinary charging by rubbing, electrons transfer between materials; protons remain bound in nuclei."},
+{topic:"Triboelectric series",q:"Example (8): A material becomes negatively charged when rubbed against another. Which description is the exception?",options:["It has a stronger tendency to accept electrons","It holds electrons more tightly","Its electrons are more weakly bound","It lies toward the end of the triboelectric series"],a:2,exp:"The exception is “its electrons are more weakly bound.” A material that gains electrons tends to attract/hold them more strongly."},
+{topic:"Conduction",q:"Example (9): Identical conducting spheres A, B, C start with +8Q, +4Q, and −8Q. A and B are connected first, then A and C. What is the final charge on A?",options:["Zero","−4Q","−Q","−8Q"],a:2,exp:"First A and B share total 8Q + 4Q = 12Q equally, so A becomes +6Q. Then A and C share +6Q − 8Q = −2Q equally, so A ends at −Q."},
+{topic:"Conduction",q:"Example (10): Identical metal spheres A, B, C carry +6 nC, −2 nC, and 0. A touches B, then A touches C. What is A’s final charge?",options:["+1 nC","+2 nC","+3 nC","+4 nC","0"],a:0,exp:"A and B share +6 − 2 = +4 nC, giving each +2 nC. Then A and C share +2 + 0 = +2 nC, giving each +1 nC."},
+{topic:"True / false",q:"Example (11A): A positively charged object contains no electrons.",options:["True","False"],a:1,exp:"False. A positively charged object normally still contains electrons; it has fewer electrons than protons."},
+{topic:"True / false",q:"Example (11B): Conductors can be charged by friction if properly isolated.",options:["True","False"],a:0,exp:"The lecture’s solution marks this True, provided the conductor is properly isolated."},
+{topic:"True / false",q:"Example (11C): When a neutral conductor is polarized by a charged object, the conductor acquires a net charge.",options:["True","False"],a:1,exp:"False. Polarization separates charge within the conductor but does not, by itself, change the conductor’s total net charge."},
+{topic:"True / false",q:"Example (11D): When two initially neutral materials are rubbed together, new electric charges are created.",options:["True","False"],a:1,exp:"False. Charge is conserved; electrons transfer from one material to the other."},
+{topic:"True / false",q:"Example (11E): Charging by induction requires direct contact.",options:["True","False"],a:1,exp:"False. Induction can occur without direct contact; grounding may be used as part of the process."},
+{topic:"True / false",q:"Example (11F): The charge on a source used to charge a body by induction stays the same after the charging process.",options:["True","False"],a:0,exp:"The lecture’s solution marks this True: no charge is removed from the charged rod during induction."},
+{topic:"Charging by induction",q:"Example (12): A positive rod charges a neutral sphere by induction using a ground connection. Which statement is correct about the rod after the process?",options:["Its charge increases","Its charge decreases","Its charge remains the same","It loses all its charge to the sphere"],a:2,exp:"The lecture notes that the source rod’s charge remains the same in charging by induction."},
+{topic:"Charging by conduction",q:"Example (13): A positive rod charges a neutral sphere by conduction. Which statement is correct about the rod?",options:["Its charge increases","Its charge decreases","Its charge remains the same","It loses all its charge to the sphere"],a:1,exp:"In conduction, charge is transferred by contact. A positive rod shares charge with the neutral sphere, so the rod’s positive charge decreases in magnitude. The PDF presents this as a multi-select question; this simplified single-answer item tests the stated principle."},
+{topic:"Coulomb’s law",q:"Example (14): Two spheres carry +2 nC and −8 nC, separated by 0.4 m in air. What is the nature and magnitude of the force?",options:["5.06 × 10⁻⁷ N, repulsive","9 × 10⁻⁷ N, attractive","2.16 × 10⁻⁷ N, attractive","9 × 10⁻⁷ N, repulsive","5.06 × 10⁻⁷ N, attractive"],a:4,exp:"F = k|q₁q₂|/r² = (9 × 10⁹)(2 × 10⁻⁹)(8 × 10⁻⁹)/(0.4²) = 9.0 × 10⁻⁷ N, attractive because the charges have opposite signs. The arithmetic corresponds to option B (9 × 10⁻⁷ N attractive); the answer key below is corrected accordingly.",correctOverride:1},
+{topic:"Coulomb’s law",q:"Example (14): If the two spheres are placed in a medium with relative permittivity 3.5, what is the force?",options:["1.645 × 10⁻⁷ N, attractive","2.57 × 10⁻⁷ N, repulsive","1.645 × 10⁻⁷ N, repulsive","3.24 × 10⁻⁷ N, attractive","2.57 × 10⁻⁷ N, attractive"],a:4,exp:"Fmedium = Fair/εr = (9.0 × 10⁻⁷)/3.5 = 2.57 × 10⁻⁷ N, still attractive. Correct choice: (E)."},
+{topic:"Coulomb’s law",q:"Example (14): The spheres (+2 nC and −8 nC) are connected by a wire, then separated to 0.4 m. What is the force in air?",options:["3.24 × 10⁻⁷ N, repulsive","5.06 × 10⁻⁷ N, repulsive","5.06 × 10⁻⁷ N, attractive","1.645 × 10⁻⁷ N, repulsive","3.24 × 10⁻⁷ N, attractive"],a:1,exp:"For identical spheres, total charge is −6 nC and each ends at −3 nC. F = k(3 × 10⁻⁹)²/(0.4²) = 5.06 × 10⁻⁷ N, repulsive. Therefore the calculated result is option B, not A; the option wording/values in the PDF appear inconsistent with its displayed solution."},
+{topic:"Coulomb’s law",q:"Which statement about Coulomb’s law is correct for two point charges?",options:["Force is proportional to the product of charge magnitudes and inversely proportional to distance squared","Force is proportional to distance squared","Force depends only on the sign of the charges","The forces on the two charges have different magnitudes"],a:0,exp:"F = k|q₁q₂|/r². The interaction forces have equal magnitudes and opposite directions."}
+];
+const form=document.getElementById('quiz');
+const letters=["A","B","C","D","E","F"];
+questions.forEach((q,i)=>{
+ const card=document.createElement('section');card.className='q';card.dataset.index=i;
+ const head=document.createElement('div');head.className='qhead';
+ const num=document.createElement('div');num.className='num';num.textContent=i+1;
+ const body=document.createElement('div');body.style.flex='1';
+ const topic=document.createElement('p');topic.className='topic';topic.textContent=q.topic;
+ const title=document.createElement('h2');title.textContent=q.q;
+ body.append(topic,title);head.append(num,body);card.append(head);
+ const opts=document.createElement('div');opts.className='opts';
+ q.options.forEach((o,j)=>{
+  const label=document.createElement('label');label.className='opt';
+  const input=document.createElement('input');input.type='radio';input.name='q'+i;input.value=j;
+  input.addEventListener('change',()=>{evaluateQuestion(i);updateProgress();});
+  const span=document.createElement('span');span.textContent=letters[j]+'. '+o;
+  label.append(input,span);opts.append(label);
+ });card.append(opts);
+ const sol=document.createElement('div');sol.className='solution';sol.innerHTML='<strong>Correct answer:</strong> '+letters[q.correctOverride ?? q.a]+'. '+q.options[q.correctOverride ?? q.a]+'<br><strong>Explanation:</strong> '+q.exp;
+ card.append(sol);form.append(card);
+});
+document.getElementById('answered').parentElement.querySelector('span');
+function evaluateQuestion(i){
+ const card=form.querySelector(`.q[data-index="${i}"]`);
+ const q=questions[i],correct=q.correctOverride ?? q.a;
+ const chosen=card.querySelector('input:checked');
+ if(!chosen)return;
+ card.classList.add('reviewed');
+ card.querySelectorAll('.opt').forEach((label,j)=>{
+  label.classList.remove('correct','incorrect');
+  if(j===correct)label.classList.add('correct');
+  if(Number(chosen.value)===j && Number(chosen.value)!==correct)label.classList.add('incorrect');
+ });
+ const feedback=card.querySelector('.solution');
+ feedback.innerHTML=(Number(chosen.value)===correct
+  ? '<strong style="color:#15803d">Correct! ✓</strong>'
+  : '<strong style="color:#be123c">Not quite ✗</strong>')+
+  '<br><strong>Correct answer:</strong> '+letters[correct]+'. '+q.options[correct]+'<br><strong>Explanation:</strong> '+q.exp;
+}
+function updateProgress(){
+ const answered=new Set([...form.querySelectorAll('input:checked')].map(x=>x.name)).size;
+ const p=Math.round(answered/questions.length*100);
+ document.getElementById('answered').textContent=`Answered ${answered} of ${questions.length}`;
+ document.getElementById('pct').textContent=p+'%';
+ document.getElementById('progressfill').style.width=p+'%';
+}
+document.getElementById('submit').addEventListener('click',()=>{
+ let score=0,answered=0;
+ [...form.children].forEach((card,i)=>{
+  const q=questions[i],correct=q.correctOverride ?? q.a,chosen=card.querySelector('input:checked');
+  if(chosen){answered++;if(Number(chosen.value)===correct)score++;}
+  card.classList.add('reviewed');
+  card.querySelectorAll('.opt').forEach((label,j)=>{
+   label.classList.remove('correct','incorrect');
+   if(j===correct)label.classList.add('correct');
+   else if(chosen&&Number(chosen.value)===j)label.classList.add('incorrect');
+  });
+ });
+ const result=document.getElementById('result');result.style.display='block';
+ const percent=Math.round(score/questions.length*100);
+ result.innerHTML=`<div class="score">${score} / ${questions.length}</div><h2>Score: ${percent}%</h2><p>You answered ${answered} of ${questions.length} questions. ${score===questions.length?'Excellent — every answer is correct!':'Review the green choices and explanations below.'}</p><p class="small">Your answers are scored in this browser only. This static version does not send or store responses on a server.</p>`;
+ result.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.getElementById('reset').addEventListener('click',()=>{
+ form.reset();form.querySelectorAll('.q').forEach(card=>{card.classList.remove('reviewed');card.querySelectorAll('.opt').forEach(l=>l.classList.remove('correct','incorrect'));});
+ const result=document.getElementById('result');result.style.display='none';result.innerHTML='';updateProgress();window.scrollTo({top:0,behavior:'smooth'});
+});
+document.getElementById('print').addEventListener('click',()=>window.print());
+updateProgress();
+</script>
+</body>
+</html>
